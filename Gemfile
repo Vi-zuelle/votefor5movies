@@ -20,6 +20,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'simple_form'
 gem 'devise'
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
