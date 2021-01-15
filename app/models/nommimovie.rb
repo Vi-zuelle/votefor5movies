@@ -1,0 +1,2 @@
+class Nommimovie < ApplicationRecord
+end
