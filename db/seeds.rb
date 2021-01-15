@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Nomimovie.destroy_all if Rails.env.development?
+
+Nomimovie.create!(title: 'The Godfather', year: '1972')
+Nomimovie.create!(title: 'Pulp Fiction', year: '1994')
+Nomimovie.create!(title: 'Fight Club', year: '1999')
+Nomimovie.create!(title: 'Forrest Gump', year: '1994')
+Nomimovie.create!(title: 'Inception', year: '2010')

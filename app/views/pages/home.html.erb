@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>This is the home page</h1>
+      <h1>This is the home pages#home</h1>
+
+      <% if user_signed_in? %>
+        <p>Hello <%= current_user.name%><p>
+      <% end %>
     </div>
   </div>
 </div>
