@@ -10,6 +10,7 @@ gem 'pg'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.1'
 gem 'devise'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
