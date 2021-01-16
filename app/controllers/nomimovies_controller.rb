@@ -1,7 +1,7 @@
 class NomimoviesController < ApplicationController
 
   def index
-    # @nomimovies = current_user.nomimovies
+    @nomimovies = current_user.nomimovies
   end
 
   def new # GET
