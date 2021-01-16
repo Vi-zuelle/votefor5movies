@@ -5,10 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'cleaning Database'
 Nomimovie.destroy_all if Rails.env.development?
+User.destroy_all if Rails.env.development?
+puts 'Database Cleaned'
+puts 'Creating seeds'
 
-Nomimovie.create!(title: 'The Godfather', year: '1972')
-Nomimovie.create!(title: 'Pulp Fiction', year: '1994')
-Nomimovie.create!(title: 'Fight Club', year: '1999')
-Nomimovie.create!(title: 'Forrest Gump', year: '1994')
-Nomimovie.create!(title: 'Inception', year: '2010')
+Vi = User.create!(name: 'Vi', email: 'vi@mail.com', password: 'password')
+Mango = User.create!(name: 'CoolMango', email: 'cool@mango.com', password: 'password')
+
+Nomimovie.create!(title: 'The Godfather', year: '1972', user: Vi)
+Nomimovie.create!(title: 'Pulp Fiction', year: '1994', user: Vi)
+Nomimovie.create!(title: 'Fight Club', year: '1999', user: Vi)
+Nomimovie.create!(title: 'Forrest Gump', year: '1994', user: Vi)
+Nomimovie.create!(title: 'Inception', year: '2010', user: Vi)
+Nomimovie.create!(title: 'Inception', year: '2010', user: Mango)
+
+puts 'Seeds successfully created'

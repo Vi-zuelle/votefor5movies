@@ -1,16 +1,21 @@
 class NomimoviesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_nomimovie, only: [:show, :destroy]
 
   def index
-    @nomimovies = current_user.nomimovies
+    @nomimovies = policy_scope(Nomimovie)
   end
 
   def new # GET
-    @nomimovie = Nomimovie.new
+    @nomimovie = current_user.nomimovies.new
+    authorize @nomimovie
   end
 
   def create # POST
-    @nomimovie = Nomimovie.new(nomimovie_params)
-    @nomimovie.user = current_user
+    @nomimovie = current_user.nomimovies.new(nomimovie_params)
+    # @nomimovie.user = current_user
+    authorize @nomimovie
+
     if @nomimovie.save
       redirect_to nomimovies_path, notice: 'movie was successfully adde to nominees'
     else
@@ -22,12 +27,19 @@ class NomimoviesController < ApplicationController
   end
 
   def destroy # DELETE
+    @nomimovie.destroy
+    redirect_to nomimovies_path
   end
 
   private
 
   def nomimovie_params
-    params.require(:nomimovie).permit(:title, :year)
+    params.require(:nomimovie).permit(:title, :year, :user_id)
+  end
+
+  def set_nomimovie
+    @nomimovie = Nomimovie.find(params[:id])
+    authorize @nomimovie
   end
 
 end

@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-12">
       <h1>nomimovies#index</h1>
-
+        <% @nomimovies.each do |nomimovie| %>
+          <%# if policy(nomimovie).index? %>
+            <li><%= nomimovie.title %></li>
+          <%# end %>
+        <% end %>
     </div>
   </div>
 </div>
