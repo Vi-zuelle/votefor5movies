@@ -4,6 +4,7 @@ class NomimoviesController < ApplicationController
 
   def index
     @nomimovies = policy_scope(Nomimovie)
+    authorize @nomimovies
   end
 
   def new # GET
@@ -19,7 +20,7 @@ class NomimoviesController < ApplicationController
     if @nomimovie.save
       redirect_to nomimovies_path, notice: 'movie was successfully adde to nominees'
     else
-      render 'new'
+      render :new
     end
   end
 

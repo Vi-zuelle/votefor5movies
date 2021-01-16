@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-12">
       <h1>nomimovies#index</h1>
-      <% @nomimovies.each do |nomimovie| %>
+      <% @movies.each do |movie| %>
         <%# if policy(nomimovie).index? %>
         <ul>
-          <li><%= nomimovie.title %></li>
-          <li><%= nomimovie.year %></li>
-          <li><%= nomimovie.user.name %></li>
+          <li><%= movie.title %></li>
+          <li><%= movie.year %></li>
+          <li><%= movie.user.name %></li>
         </ul>
         <%# end %>
       <% end %>

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   # Pundit: white-list approach.
     # verify after action and just before the view that the user is authorized
-  after_action :verify_authorized, except: :home, except: :index, unless: :devise_controller?
+  after_action :verify_authorized, except: [:home, :index], unless: :devise_controller?
 
     # if we want to use the scope:
   after_action :verify_policy_scoped, only: :index, unless: :devise_controller?
