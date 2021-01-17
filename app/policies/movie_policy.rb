@@ -1,26 +1,26 @@
-# class NomimoviePolicy < ApplicationPolicy
+# class MoviePolicy < ApplicationPolicy
 #   class Scope < Scope
 #     def resolve
-#       # scope.all
-#       scope.where(user: @user)
+#       scope.all
+#       # scope.where(user: @user)
 #     end
 #   end
 
 #   def index?
 #     # scope.where(user: @user)
 #     # @user == user
-#     true
+#     scope
 #   end
 
 #   def create? # POST
-#     record.user == user
+#     # record.user == user
 #   end
 
 #   def show? # GET
 #   end
 
 #   def destroy? # DELETE
-#     record.user == user # Only nomimovie creator can destroy it
+#     # record.user == user # Only nomimovie creator can destroy it
 #   end
 
 

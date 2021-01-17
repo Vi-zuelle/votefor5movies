@@ -1,16 +1,29 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h1>nomimovies#index</h1>
-      <% @nomimovies.each do |nomimovie| %>
-        <%# if policy(nomimovie).index? %>
-        <ul>
-          <li><%= nomimovie.title %></li>
-          <li><%= nomimovie.year %></li>
-          <li><%= nomimovie.user.name %></li>
-        </ul>
-        <%# end %>
+  <h1>nomimovies#index</h1>
+    <h2>My Nomimovies</h2>
+    <div class="row mt-3">
+      <% if @nomimovies.exists? %>
+        <% @nomimovies.each do |nomimovie| %>
+          <div class="col-12 col-md-2 col-lg-2">
+              <%# if policy(nomimovie).index? %>
+              <div class="card-trip">
+                <img src="<%= nomimovie.movie.image_url %>" alt="poster">
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= nomimovie.movie.title %></h2>
+                    <p><%= nomimovie.movie.year %></p>
+                  </div>
+                  <p class="card-trip-pricing"><%= nomimovie.user.name %></p>
+                </div>
+              </div>
+              <%# end %>
+          </div>
+        <% end %>
       <% end %>
+    </div>
+
+  <div class="row pt-4 pb-4">
+    <div class="col">
       <%= form_tag nomimovies_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -20,5 +33,24 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
+  </div>
+
+  <h2>Movies list</h2>
+  <div class="row">
+    <% @movies.each do |movie| %>
+      <div class="col-12 col-md-2 col-lg-2">
+          <%# if policy(nomimovie).index? %>
+          <div class="card-trip">
+            <img src="<%= movie.image_url %>" alt="poster">
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= movie.title %></h2>
+                <p><%= movie.year %></p>
+              </div>
+            </div>
+          </div>
+          <%# end %>
+      </div>
+    <% end %>
   </div>
 </div>

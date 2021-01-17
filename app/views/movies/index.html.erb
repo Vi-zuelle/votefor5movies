@@ -1,23 +1,16 @@
 <div class="container">
+  <h1>movies#index</h1>
   <div class="row">
     <div class="col-12">
-      <h1>nomimovies#index</h1>
+      <h2>Movies list</h2>
       <% @movies.each do |movie| %>
         <%# if policy(nomimovie).index? %>
         <ul>
+          <li><img src="<%= movie.image_url %>" alt="poster"></li>
           <li><%= movie.title %></li>
           <li><%= movie.year %></li>
-          <li><%= movie.user.name %></li>
         </ul>
         <%# end %>
-      <% end %>
-      <%= form_tag nomimovies_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a movie"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

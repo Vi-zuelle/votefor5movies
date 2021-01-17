@@ -6,6 +6,9 @@
       <% if user_signed_in? %>
         <p>Hello <%= current_user.name%><p>
       <% end %>
+
+      <%= link_to "Create new", new_movie_path, class: "nav-link" %>
+
     </div>
   </div>
 </div>

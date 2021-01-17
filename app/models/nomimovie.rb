@@ -1,6 +1,5 @@
 class Nomimovie < ApplicationRecord
   belongs_to :user
+  belongs_to :movie
   # validates_presence_of :title, :year
-  validates :title, presence: true
-  validates :year, presence: true
 end
